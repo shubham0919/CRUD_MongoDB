@@ -1,0 +1,40 @@
+<form action="/insertdata" method="post" enctype="multipart/form-data">
+    <table>
+        <tr  class="col">
+            <td>Book Name :</td>
+            <td><input type="text" name="bookname"></td>
+        </tr>
+        <tr  class="col">
+            <td>Book Price :</td>
+            <td><input type="text" name="bookprice"></td>
+        </tr>
+        <tr  class="col">
+            <td>Book Pages :</td>
+            <td><span id="price">0</span><input type="range" name="bookpages" id="range" min="0" max="1000" oninput="price(this.value)" value="0"></td>
+        </tr>
+        <tr  class="col">
+            <td>Book Author :</td>
+            <td><input type="text" name="bookauthor"></td>
+        </tr>
+        <tr  class="col">
+            <td>Book Images :</td>
+            <td><input type="file" name="bookimg"></td>
+        </tr>
+        <tr  class="col">
+            <td></td>
+            <td><input type="submit" class="btn"></td>
+        </tr>
+    </table>
+    <a href="/viewdata" class="btn">View</a>
+</form>
+
+
+
+<script>
+    let priceRange = 0;
+
+function price(value) {
+    priceRange = value;
+    document.getElementById('price').innerHTML = value;
+}
+</script>

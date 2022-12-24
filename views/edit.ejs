@@ -1,0 +1,34 @@
+<form action="/editdata" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="<%= single.id %>" name="edit_id">
+    <table border="2">
+        <tr>
+            <td>Book Name :</td>
+            <td><input type="text" value="<%= single.bookname %>" name="bookname" ></td>
+        </tr>
+        <tr>
+            <td>Book Price :</td>
+            <td><input type="text" value="<%= single.bookprice %>" name="bookprice" ></td>
+        </tr>
+        <tr>
+            <td>Book Pages :</td>
+            <td><span id="price"><%= single.bookpages %></span><input type="range" name="bookpages" min="0" max="1000" oninput="price(this.value)" value="<%= single.bookpages %>" ></td>
+        </tr>
+        <tr>
+            <td>Book Author :</td>
+            <td><input type="text" value="<%= single.bookauthor %>" name="bookauthor" ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    let priceRange = 0;
+
+function price(value) {
+    priceRange = value;
+    document.getElementById('price').innerHTML = value;
+}
+</script>

@@ -1,0 +1,26 @@
+<form action="/viewdata" method="post" enctype="multipart/form-data">
+    <table>
+       <tr>
+            <th>Book Name</th>
+            <th>Book Price</th>
+            <th>Book Pages</th> 
+            <th>Book Author</th>
+            <th>Book Images</th>
+            <th>Action</th>
+       </tr>
+       <%  for(let i=0;i<library.length ;i++) { %>
+            <tr>
+                <td><%= library[i].bookname %></td>
+                <td><%= library[i].bookprice %></td>
+                <td><%= library[i].bookpages %></td>
+                <td><%= library[i].bookauthor %></td>
+                <td><img src="<%= library[i].bookimg %>" width="100"/></td>
+                <td>
+                    <a href="/deletedata/<%= library[i].id %>">Delete</a>
+                    ||
+                    <a href="/updatedata/<%= library[i].id %>">Edit</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</form>
